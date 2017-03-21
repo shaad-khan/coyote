@@ -11,20 +11,25 @@
 
   <div class="item item-body">
    <div class="list list-inset">
-  <label class="item item-input item-select">
-    <div class="input-label">
+  <!-- <label class="item item-input item-select">
+   <div class="input-label">
       Trucking Company
     </div>
-    <select>
+    <select ng-model="company">
   <option ng-repeat="item in items" value="{{item.Company}}">{{item.Company}}</option>
 </select>
-  </label>
-  <label class="item item-input">
-    <input type="text" placeholder="Unique_ID" required>
+  </label>-->
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Unique ID
+    </div>
+    <select ng-model="uid">
+  <option ng-repeat="item in items" value="{{item.unique_id}}">{{item.unique_id}}</option>
+</select>
   </label>
 </div>
 <div class="login-button">
-<button class="button button-full button-coyote">
+<button class="button button-full button-coyote" ng-click="login(company,uid)">
    Login
 </button>
 <button class="button button-full button-coyote" ng-click="register()">

@@ -5,12 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova','chart.js'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    $rootScope.deviceid=device.uuid;
+    //alert($rootScope.deviceid);
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -20,11 +22,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    // $location.path('/landing');
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider,$urlRouterProvider,ChartJsProvider) {
 
+ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -82,12 +86,52 @@ $stateProvider
         .state('landing', {
             url: '/landing',
             controller: 'landing',
-            templateUrl: 'templates/landing.html'
+            templateUrl: 'templates/landing.html',
+             resolve: {
+            cordova: function($q) {
+                var deferred = $q.defer();
+                ionic.Platform.ready(function() {
+                    console.log('ionic.Platform.ready');
+                    deferred.resolve();
+                });
+                return deferred.promise;
+            }
+             }
     })
     .state('register', {
             url: '/register',
             controller: 'register',
             templateUrl: 'templates/register.html'
+    })
+.state('firstpage', {
+            url: '/firstpage',
+            controller: 'firstpage',
+            templateUrl: 'templates/firstpage.html'
+    })
+    .state('secondpage', {
+            url: '/secondpage',
+            controller: 'secondpage',
+            templateUrl: 'templates/secondpage.html'
+    })
+    .state('detail', {
+            url: '/detail/:type',
+            controller: 'detail',
+            templateUrl: 'templates/detail.html'
+    })
+    .state('notify', {
+            url: '/notify',
+            controller: 'notify',
+            templateUrl: 'templates/notify.html'
+    })
+    .state('notify2', {
+            url: '/notify2',
+            controller: 'notify',
+            templateUrl: 'templates/notify2.html'
+    })
+    .state('graph', {
+            url: '/graph',
+            controller:'graph',
+            templateUrl: 'templates/graph.html'
     });
 
   $urlRouterProvider.otherwise('/landing');
