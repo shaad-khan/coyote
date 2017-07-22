@@ -11,7 +11,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    $rootScope.deviceid=device.uuid;
+    $rootScope.deviceid='123345';
     //alert($rootScope.deviceid);
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -128,13 +128,18 @@ $stateProvider
             controller: 'notify',
             templateUrl: 'templates/notify2.html'
     })
+    .state('cinfo', {
+            url: '/cinfo',
+            controller: 'cinfo',
+            templateUrl: 'templates/cinfo.html'
+    })
     .state('graph', {
             url: '/graph',
             controller:'graph',
             templateUrl: 'templates/graph.html'
     });
 
-  $urlRouterProvider.otherwise('/landing');
+  $urlRouterProvider.otherwise('/cinfo');
   // if none of the above states are matched, use this as the fallback
  // $urlRouterProvider.otherwise('/tab/dash');
 

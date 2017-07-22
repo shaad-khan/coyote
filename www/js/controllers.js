@@ -105,6 +105,41 @@ var b=$interval(bcheck, 7000);
   }
 
 })
+
+
+.controller('cinfo',function($scope,$ionicLoading,$rootScope,service_call){
+$scope.dateload=function(v1)
+{
+  v1=convert(v1);
+  $scope.date=v1;
+  $ionicLoading.show({template: 'Loading Data... <ion-spinner icon="android" class="custom-icon"></ion-spinner>'});
+service_call.serv("http://localhost:1337/coyote/info?date="+v1).then(function(response){
+  
+     	//$scope.load2='false';
+console.log("http://localhost:1337/coyote/info?date="+v1);
+     
+      $timeout(function() {
+         $scope.it=response.data;
+        $ionicLoading.hide();
+    }, 10000);
+      
+    console.log($scope.it);
+      
+     // console.log($scope.items)
+    });
+    function convert(str) {
+    var date = new Date(str),
+        mnth = date.getMonth(),
+        day  = date.getDate();
+    return [day, mnth,date.getFullYear()].join("/");
+}
+
+}
+
+})
+
+
+
 .controller('graph', function($scope,$rootScope,service_call,$ionicLoading,$timeout,$ionicModal) {
 
 
