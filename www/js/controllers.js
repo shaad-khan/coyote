@@ -107,16 +107,16 @@ var b=$interval(bcheck, 7000);
 })
 
 
-.controller('cinfo',function($scope,$ionicLoading,$rootScope,service_call){
+.controller('cinfo',function($scope,$ionicLoading,$rootScope,service_call,$timeout){
 $scope.dateload=function(v1)
 {
   v1=convert(v1);
   $scope.date=v1;
   $ionicLoading.show({template: 'Loading Data... <ion-spinner icon="android" class="custom-icon"></ion-spinner>'});
-service_call.serv("http://localhost:1337/coyote/info?date="+v1).then(function(response){
+service_call.serv("http://nodeappservice.azurewebsites.net/coyote/info?date="+v1).then(function(response){
   
      	//$scope.load2='false';
-console.log("http://localhost:1337/coyote/info?date="+v1);
+console.log("http://nodeappservice.azurewebsites.net/coyote/info?date="+v1);
      
       $timeout(function() {
          $scope.it=response.data;

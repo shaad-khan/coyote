@@ -51,7 +51,7 @@
 </div>
 <div class="card">
   <div class="item item-text-wrap">
-    This is a basic Card which contains an item that has wrapping text.
+    Demo Data.
   </div>
 </div>
 <!--
@@ -73,8 +73,9 @@
 </div>
  <!--  </ion-scroll>-->
 <!--<ion-scroll zooming="true" direction="xy" style="width: 340px; height: 300px">-->
-
-  <div class = "row" style="padding-top: 5px; padding-left:0px;padding-right:0px;">
+<div ng-repeat="item in it track by $index" ng-if="$index>0">
+    <ion-scroll zooming="true" direction="y" style="width: 330px; height:30px">
+  <div class = "row"  ng-if="$index%2 == 0" style="padding-top: 0px; padding-left:0px;padding-right:0px;" >
      <div class = "col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -82,7 +83,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
     border-left-width: thin;
-    ">Quick Pay</div>
+    ">{{item.Description}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -90,7 +91,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">200</div>
+    ">{{item.Opening}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -98,7 +99,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">300</div>
+    ">{{item.Received}}</div>
     <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -106,7 +107,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">9902</div>
+    ">{{item.Processed}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -114,7 +115,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">12</div>
+    ">{{item.Closing}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     border-right-width: thin;
@@ -122,11 +123,11 @@
      /*border-bottom-color: white;*/
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">348</div>
+    ">{{item.BacklogDays}}</div>
   <!-- <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}}  <span class="ion-pie-graph"></span></a></div>
   --></div>
  
-  <div class = "row" style="padding-top: 0px; background-color: rgb(97, 245, 5);
+  <div class = "row" ng-if="$index%2!=0" style="padding-top: 0px; background-color: rgb(97, 245, 5);
     padding-bottom: 0px;padding-left:0px;padding-right:0px;">
      <div class = "col col-2" style="
     border-style: solid;
@@ -135,7 +136,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
     border-left-width: thin;
-    ">Carrier</div>
+    ">{{item.Description}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -143,7 +144,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">200</div>
+    ">{{item.Opening}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -151,7 +152,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">300</div>
+    ">{{item.Received}}</div>
     <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -159,7 +160,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">9902</div>
+    ">{{item.Processed}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     /* border-right-width: thin; */
@@ -167,7 +168,7 @@
     /* border-bottom-color: white; */
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">12</div>
+    ">{{item.Closing}}</div>
    <div class = "col col col-2" style="
     border-style: solid;
     border-right-width: thin;
@@ -175,170 +176,12 @@
      /*border-bottom-color: white;*/
     border-bottom-width: thin;
    /* border-left-width: thin;*/
-    ">348</div>
+    ">{{item.BacklogDays}}</div>
   <!-- <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}}  <span class="ion-pie-graph"></span></a></div>
   --></div>
   
-  <div class = "row" style="padding-top: 0px; padding-left:0px;padding-right:0px;">
-     <div class = "col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-    border-left-width: thin;
-    ">Billing jobs</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">200</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">300</div>
-    <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">9902</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">12</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    border-right-width: thin;
-    border-right-color: #111;
-     /*border-bottom-color: white;*/
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">348</div>
-  <!-- <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}}  <span class="ion-pie-graph"></span></a></div>
-  --></div>
+    </ion-scroll>
 
-    <div class = "row" style="padding-top: 0px; background-color: rgb(97, 245, 5);
-    padding-bottom: 0px;padding-left:0px;padding-right:0px;">
-     <div class = "col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-    border-left-width: thin;
-    ">Paper</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">200</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">300</div>
-    <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">9902</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    /* border-right-width: thin; */
-    border-right-color: #fafafa;
-    /* border-bottom-color: white; */
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">12</div>
-   <div class = "col col col-2" style="
-    border-style: solid;
-    border-right-width: thin;
-    border-right-color: #111;
-     /*border-bottom-color: white;*/
-    border-bottom-width: thin;
-   /* border-left-width: thin;*/
-    ">348</div>
-  <!-- <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}}  <span class="ion-pie-graph"></span></a></div>
-  --></div>
-  <!--<div class = "row" ng-if="$index%2 == 0" style="background-color:darkgray">
-   <div class = "col">{{item.Description}}</div>
-   <div class = "col">{{item.Opening}}</div>
-    <div class = "col">{{item.Received}}</div>
-   <div class = "col">{{item.Processed}}</div>
-   <div class = "col">{{item.Closing}}</div>
-   <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}}  <span class="ion-pie-graph"></span></a></div>
-</div>-->
-
-<!--<div class = "row" ng-if="$index%2!=0" style="background-color:beige">
-   <div class = "col">{{item.Description}}</div>
-   <div class = "col">{{item.Opening}}</div>
-    <div class = "col">{{item.Received}}</div>
-   <div class = "col">{{item.Processed}}</div>
-   <div class = "col">{{item.Closing}}</div>
-   <div class = "col"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays,item.Description)" style="text-decoration: none;">{{item.BacklogDays}} <span class="ion-pie-graph"></span></a></div>
-   
-</div>-->
-
-
-  <!--<div class="item item-divider"><a href="" ng-click = "openModal(item.Opening,item.Received,item.Processed,item.Closing,item.BacklogDays)" style="text-decoration: none;"> <span class="ion-pie-graph">
-  {{item.Description}}    Date : {{date | date:'yyyy-MM-dd'}}  </span></div></a><i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
-            {{ isGroupShown(item) ? 'Less' : 'More' }}
-  </div>
-  <div ng-click="toggleItem(item)" class="item-expand-footer">
-            
-          
-  <div class="item item-text-wrap">
-    
-    <a class="item item-icon-left" href="">
-    <i class="icon ion-ios-pie-outline"></i>
-    Opening
-    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Opening}}</span>
-  </a>
-   <a class="item item-icon-left" href="">
-    <i class="icon ion-ios-pie-outline"></i>
-    Received
-    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Received}}</span>
-  </a>
-   <a class="item item-icon-left" href="">
-    <i class="icon ion-ios-pie-outline"></i>
-    Processed
-    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Processed}}</span>
-  </a>
-   <a class="item item-icon-left" href="">
-    <i class="icon ion-ios-pie-outline"></i>
-    Closing
-    <span class="badge badge-assertive" style="background-color: #61f505">{{item.Closing}}</span>
-  </a>
- <a class="item item-icon-left" href="">
-    <i class="icon ion-ios-pie-outline"></i>
-    BacklogDays
-    <span class="badge badge-assertive" style="background-color: #61f505">{{item.BacklogDays}}</span>
-  </a>
-  </div>
-</div>-->
 
 </div>
 <!--</div>-->
