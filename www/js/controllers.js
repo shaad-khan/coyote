@@ -129,9 +129,9 @@ console.log("http://nodeappservice.azurewebsites.net/coyote/info?date="+v1);
     });
     function convert(str) {
     var date = new Date(str),
-        mnth = date.getMonth(),
+        mnth = date.getMonth()+1,
         day  = date.getDate();
-    return [day, mnth,date.getFullYear()].join("/");
+    return [mnth, day,date.getFullYear()].join("/");
 }
 
 }
