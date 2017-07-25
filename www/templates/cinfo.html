@@ -6,7 +6,7 @@
       <label class="item item-input-wrapper">		
       <input type="date" placeholder="Placeholder 1" ng-model="dt" style="width:320px;background: url(img/date2.png) no-repeat right 11px center;background-size: 40px 30px;">
       </label>
-      <button class="button button-small" style="background-color: #61f505;color:azure;" ng-click="dateload(dt)">Submit</button>
+      <button class="button button-small" style="background-color: #61f505;color:azure;" ng-click="dateload(dt)">Generate Report</button>
    </div>
 <!--<div class="card">
   <div class="item item-text-wrap">
@@ -73,7 +73,7 @@
 </div>
  <!--  </ion-scroll>-->
 <!--<ion-scroll zooming="true" direction="xy" style="width: 340px; height: 300px">-->
-<div ng-repeat="item in it track by $index" ng-if="$index>0">
+<div ng-repeat="item in it track by $index" ng-if="$index>=0">
     <ion-scroll zooming="true" direction="y" style="width: 375x; height:50px">
   <div class = "row"  ng-if="$index%2 == 0" style="padding-top: 0px; padding-left:0px;padding-right:0px;" >
      <div class = "col col-2" style="

@@ -112,7 +112,7 @@ $scope.dateload=function(v1)
 {
   v1=convert(v1);
   $scope.date=v1;
-  $ionicLoading.show({template: 'Loading Data... <ion-spinner icon="android" class="custom-icon"></ion-spinner>'});
+  $ionicLoading.show({template: 'Fetching Data... <ion-spinner icon="android" class="custom-icon"></ion-spinner>'});
 service_call.serv("http://nodeappservice.azurewebsites.net/coyote/info?date="+v1).then(function(response){
   
      	//$scope.load2='false';

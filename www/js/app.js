@@ -11,6 +11,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    navigator.splashscreen.hide();
     $rootScope.deviceid='123345';
     //alert($rootScope.deviceid);
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
